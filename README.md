@@ -15,14 +15,12 @@ A simple, interactive Flashcard Learning App built with **Next.js**, **TypeScrip
 7. [Form Validation](#form-validation)  
 8. [Screenshots](#screenshots)  
 9. [Extending the App](#extending-the-app)  
-10. [Contributing](#contributing)  
-11. [License](#license)  
+10. [Contributing](#contributing) 
 
 ---
 
 ## Demo
 
-*(Add screenshots or live demo link here, for example:)* 
 ![Flashcard APP](/public/flashcard_form.PNG) 
 [Live Demo](https://flashcard-oadaramola.vercel.app/)
 
