@@ -1,6 +1,7 @@
-# Flashcard Learning App
+# Flashcard Learning App | Study Smarter with Interactive Digital Flashcards
 
-A simple, interactive Flashcard Learning App built with **Next.js**, **TypeScript**, **TailwindCSS**, and **Shadcn UI components**. Users can add new flashcards, view questions, reveal answers, and track learned items. This app demonstrates a clean, modern frontend workflow with form validation, responsive design, and component-driven architecture.
+Boost your learning with this **interactive Flashcard Learning App** built using **Next.js**, **TypeScript**, **TailwindCSS**, and **Shadcn UI**. Add, flip, and mark flashcards as learned for **efficient study sessions**.
+
 
 ---
 
@@ -28,13 +29,15 @@ A simple, interactive Flashcard Learning App built with **Next.js**, **TypeScrip
 
 ## Features
 
-- Add new flashcards with **question** and **answer**.  
-- Mark flashcards as **learned**.  
-- Flip flashcards to reveal answers.  
-- Responsive layout for **mobile and desktop**.  
-- Form validation with **disabled button** if inputs are empty.  
-- Clean and modern UI using **Shadcn UI components**.  
-- Easy to extend for additional functionality like **shuffling flashcards**.
+- **Add New Flashcards:** Quickly create questions and answers for study topics  
+- **Flip Flashcards:** Reveal answers by flipping the card  
+- **Mark as Learned:** Track progress for studied flashcards  
+- **Responsive Design:** Works perfectly on **mobile**, **tablet**, and **desktop**  
+- **Form Validation:** Prevent adding empty flashcards  
+- **Modern UI:** Built with **Shadcn UI** and **TailwindCSS**  
+- **Extendable:** Supports future features like shuffling, categories, and search  
+
+*Keywords included: flashcards, interactive learning, study app, Next.js, TypeScript, TailwindCSS, Shadcn UI*
 
 ---
 
