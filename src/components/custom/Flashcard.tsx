@@ -20,11 +20,11 @@ export default function Flashcard({
   return (
     <div
       onClick={() => toggleAnswer(id)}
-      className={`relative bg-white shadow-lg rounded-xl p-6 cursor-pointer transform transition hover:scale-105 hover:shadow-xl border-t-4 ${
-        learned ? "border-green-400 opacity-60" : "border-blue-400"
+      className={`relative bg-[#FFFFFF] shadow-lg rounded-xl p-6 cursor-pointer transform transition hover:scale-105 hover:shadow-xl border-t-4 ${
+        learned ? "border-[#34D399] opacity-60" : "border-[#60A5FA]"
       }`}
     >
-      <h3 className="text-lg font-semibold text-gray-700">
+      <h3 className="text-lg font-semibold text-[#374151]">
         {showAnswer ? answer : question}
       </h3>
       <button
@@ -32,7 +32,7 @@ export default function Flashcard({
           e.stopPropagation();
           toggleLearned(id);
         }}
-        className="mt-4 text-sm bg-green-600 text-white px-3 py-1 rounded-lg hover:bg-green-700 transition"
+        className="mt-4 text-sm bg-[#059669] text-[#FFFFFF] px-3 py-1 rounded-lg hover:bg-[#047857] transition"
       >
         {learned ? "Unmark" : "Mark Learned"}
       </button>

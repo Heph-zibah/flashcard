@@ -9,18 +9,16 @@ export function useFlashcards(initialFlashcards: Flashcard[] = []) {
   const [showAnswer, setShowAnswer] = useState<{ [key: number]: boolean }>({});
   const [newQuestion, setNewQuestion] = useState("");
   const [newAnswer, setNewAnswer] = useState("");
-  const [loading, setLoading] = useState(true); // 👈 loading state
+  const [loading, setLoading] = useState(true);
 
-  // Load flashcards from localStorage only after hydration
   useEffect(() => {
     const stored = localStorage.getItem("flashcards");
     if (stored) {
       setFlashcards(JSON.parse(stored));
     }
-    setLoading(false); // 👈 stop loading after hydration check
+    setLoading(false);
   }, []);
 
-  // Save to localStorage whenever flashcards change
   useEffect(() => {
     if (!loading) {
       localStorage.setItem("flashcards", JSON.stringify(flashcards));
@@ -68,7 +66,7 @@ export function useFlashcards(initialFlashcards: Flashcard[] = []) {
     showAnswer,
     newQuestion,
     newAnswer,
-    loading, // 👈 expose loading state
+    loading,
     setNewQuestion,
     setNewAnswer,
     toggleAnswer,

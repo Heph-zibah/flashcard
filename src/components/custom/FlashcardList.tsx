@@ -9,7 +9,7 @@ type FlashcardListProps = {
   showAnswer: { [key: number]: boolean };
   toggleAnswer: (id: number) => void;
   toggleLearned: (id: number) => void;
-  loading: boolean; // 👈 added
+  loading: boolean;
 };
 
 export default function FlashcardList({
@@ -17,7 +17,7 @@ export default function FlashcardList({
   showAnswer,
   toggleAnswer,
   toggleLearned,
-  loading, // 👈 destructure
+  loading,
 }: FlashcardListProps) {
   if (loading) {
     return (
