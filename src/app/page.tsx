@@ -18,18 +18,10 @@ export default function Home() {
     shuffle,
     loading,
     clearFlashcards,
-  } = useFlashcards([
-    {
-      id: 1,
-      question: "What is React?",
-      answer: "A JavaScript library for building UIs",
-      learned: false,
-    },
-    { id: 2, question: "Capital of Nigeria?", answer: "Abuja", learned: false },
-  ]);
+  } = useFlashcards([]);
 
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center p-6 font-inter">
+    <main className="min-h-screen bg-[#F9FAFB] flex flex-col items-center p-6 font-inter">
       <div className="flex items-center mb-8 relative">
         <h1 className="text-4xl font-poppins font-bold  text-secondary z-10">
           FlashLearn
@@ -58,11 +50,19 @@ export default function Home() {
         toggleLearned={toggleLearned}
         loading={loading}
       />
-      <div className="flex flex-col md:flex-row items-center gap-10 mt-10">
-        <Button variant="destructive" onClick={clearFlashcards} className=" ">
+      <div className="flex flex-col md:flex-row items-center md:justify-center w-full gap-5 md:gap-10 mt-10">
+        <Button
+          variant="destructive"
+          onClick={clearFlashcards}
+          className=" w-full md:w-auto"
+        >
           Clear All Flashcards
         </Button>
-        <Button variant="default" onClick={shuffle} className=" ">
+        <Button
+          variant="default"
+          onClick={shuffle}
+          className="w-full md:w-auto"
+        >
           Shuffle Flashcards
         </Button>
       </div>

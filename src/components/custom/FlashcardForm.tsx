@@ -1,5 +1,9 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
 type FlashcardFormProps = {
   newQuestion: string;
   setNewQuestion: (value: string) => void;
@@ -15,31 +19,38 @@ export default function FlashcardForm({
   setNewAnswer,
   addFlashcard,
 }: FlashcardFormProps) {
+  const isFormValid = newQuestion.trim() !== "" && newAnswer.trim() !== "";
+
   return (
-    <div className="bg-[#FFFFFF] shadow-lg rounded-xl p-6 mb-8 w-full max-w-md">
-      <h2 className="text-2xl font-poppins font-semibold mb-4 text-[#1F2937]">
+    <div className="bg-white shadow-lg rounded-xl p-6 mb-8 w-full max-w-md space-y-5">
+      <h2 className="text-2xl font-poppins font-semibold  text-[#1F2937]">
         Add a Flashcard
       </h2>
-      <input
+
+      <Input
+        id="question"
         type="text"
-        placeholder="Question"
+        placeholder="Enter your question"
         value={newQuestion}
         onChange={(e) => setNewQuestion(e.target.value)}
-        className="w-full border border-[#D1D5DB] rounded-xl p-3 mb-3 focus:ring-2 focus:ring-[#60A5FA] focus:outline-none"
       />
-      <input
+
+      <Input
+        id="answer"
         type="text"
-        placeholder="Answer"
+        placeholder="Enter the answer"
         value={newAnswer}
         onChange={(e) => setNewAnswer(e.target.value)}
-        className="w-full border border-[#D1D5DB] rounded-xl p-3 mb-3 focus:ring-2 focus:ring-[#34D399] focus:outline-none"
       />
-      <button
+
+      <Button
+        disabled={!isFormValid}
         onClick={addFlashcard}
-        className="bg-secondary text-[#FFFFFF] px-5 py-2 rounded-xl hover:bg-[#2528EB] transition shadow-md"
+        className="w-full"
+        variant="secondary"
       >
         Add Flashcard
-      </button>
+      </Button>
     </div>
   );
 }
