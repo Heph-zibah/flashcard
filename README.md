@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flashcard Learning App
 
-## Getting Started
+A simple, interactive Flashcard Learning App built with **Next.js**, **TypeScript**, **TailwindCSS**, and **Shadcn UI components**. Users can add new flashcards, view questions, reveal answers, and track learned items. This app demonstrates a clean, modern frontend workflow with form validation, responsive design, and component-driven architecture.
 
-First, run the development server:
+---
+
+## Table of Contents
+
+1. [Demo](#demo)  
+2. [Features](#features)  
+3. [Tech Stack](#tech-stack)  
+4. [Installation](#installation)  
+5. [Usage](#usage)  
+6. [Component Structure](#component-structure)  
+7. [Form Validation](#form-validation)  
+8. [Screenshots](#screenshots)  
+9. [Extending the App](#extending-the-app)  
+10. [Contributing](#contributing)  
+11. [License](#license)  
+
+---
+
+## Demo
+
+*(Add screenshots or live demo link here, for example:)* 
+![Flashcard APP](/public/flashcard_form.PNG) 
+[Live Demo](https://flashcard-oadaramola.vercel.app/)
+
+---
+
+## Features
+
+- Add new flashcards with **question** and **answer**.  
+- Mark flashcards as **learned**.  
+- Flip flashcards to reveal answers.  
+- Responsive layout for **mobile and desktop**.  
+- Form validation with **disabled button** if inputs are empty.  
+- Clean and modern UI using **Shadcn UI components**.  
+- Easy to extend for additional functionality like **shuffling flashcards**.
+
+---
+
+## Tech Stack
+
+- **Next.js 13+** – React framework for server-side rendering and routing.  
+- **TypeScript** – Strongly typed JavaScript for safer code.  
+- **TailwindCSS** – Utility-first CSS framework for styling.  
+- **Shadcn UI** – Prebuilt UI components (Input, Button, Label).  
+- **React Hooks** – For state management in components.  
+
+---
+
+## Installation
+
+1. **Clone the repository**
 
 ```bash
+git clone https://github.com/Heph-zibah/flashcard.git
+cd flashcard
+
+```
+2. **Install dependencies**
+
+pnpm install
+# or
+npm install
+# or
+yarn
+
+
+3. **IRun the development server**
+
+pnpm dev
+# or
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+
+## Usage
+
+1. Enter a **question** in the first input field  
+2. Enter the corresponding **answer** in the second input field  
+3. The **"Add Flashcard" button** becomes enabled once both fields have text  
+4. Click **Add Flashcard** to save the flashcard  
+5. Flashcards will appear below the form, ready to be flipped and marked as learned  
+
+---
+
+## Component Structure
+
+### `FlashcardForm`
+
+**Props:**
+
+- `newQuestion: string` – Current input for the question  
+- `setNewQuestion: (value: string) => void` – State setter for the question input  
+- `newAnswer: string` – Current input for the answer  
+- `setNewAnswer: (value: string) => void` – State setter for the answer input  
+- `addFlashcard: () => void` – Function to save a new flashcard  
+
+**Features:**
+
+- Uses **Shadcn Input, Label, and Button** components  
+- Button is **disabled** if either input is empty (`isFormValid` check)  
+- Responsive layout with **TailwindCSS**  
+
+**Code Example:**
+
+```ts
+const isFormValid = newQuestion.trim() !== "" && newAnswer.trim() !== "";
+<Button disabled={!isFormValid} onClick={addFlashcard}>Add Flashcard</Button>
+
+### `FlashcardList` (Assumed based on project context)
+
+**Props / Features:**
+
+- Displays a list of all flashcards  
+- Allows each flashcard to be flipped to reveal the answer  
+- Lets users mark flashcards as learned  
+
+**Code Example:**
+
+```ts
+{flashcards.map((card) => (
+  <Flashcard
+    key={card.id}
+    question={card.question}
+    answer={card.answer}
+    learned={card.learned}
+    toggleLearned={() => markAsLearned(card.id)}
+  />
+))}
+
 ```
+## Form Validation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app ensures both inputs are filled before allowing the flashcard to be added.  
+This prevents empty submissions and improves user experience.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```ts
+const isFormValid = newQuestion.trim() !== "" && newAnswer.trim() !== "";
+<Button disabled={!isFormValid}>Add Flashcard</Button>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+## Screenshots
 
-## Learn More
+**Flashcard List**  
+![Flashcard List](/public/flashcard_list.PNG)
 
-To learn more about Next.js, take a look at the following resources:
+**Flipped Flashcard**  
+![Flipped Card](/public/flipped_flashcard.PNG)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Extending the App
 
-## Deploy on Vercel
+Here are some ways to enhance the app:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Shuffle Flashcards:** Add a button to randomly display flashcards for practice  
+- **Track Learned Flashcards:** Store learned status in `localStorage` or a backend  
+- **Delete Flashcards:** Add a delete button on each card to remove it  
+- **Category Support:** Allow flashcards to belong to different categories or subjects  
+- **Search or Filter:** Add a search input to quickly find flashcards  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Contributing
+
+1. Fork the repository  
+2. Create a feature branch: `git checkout -b feature/my-feature`  
+3. Commit changes: `git commit -m 'Add my feature'`  
+4. Push to branch: `git push origin feature/my-feature`  
+5. Open a pull request
+
