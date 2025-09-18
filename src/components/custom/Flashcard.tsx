@@ -28,6 +28,7 @@ export default function Flashcard({
         {showAnswer ? answer : question}
       </h3>
       <button
+        type="button"
         onClick={(e) => {
           e.stopPropagation();
           toggleLearned(id);

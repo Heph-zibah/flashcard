@@ -1,8 +1,5 @@
 import { Flashcard } from "@/lib/types/flashcard";
 
-/**
- * Randomly shuffles flashcards using Fisher-Yates algorithm
- */
 export function shuffleFlashcards(flashcards: Flashcard[]): Flashcard[] {
   const shuffled = [...flashcards];
   for (let i = shuffled.length - 1; i > 0; i--) {
