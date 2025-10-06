@@ -69,13 +69,14 @@ export default function Home() {
       <footer className="mt-10 text-sm text-gray-500">
         Created by{" "}
         <a
+          className="text-blue-500 hover:underline"
           href="https://www.linkedin.com/in/oadaramola/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Oluwatosin Abigail Daramola
-        </a>
-        2025
+        </a>{" "}
+        || &copy; {new Date().getFullYear()}
       </footer>
     </main>
   );
