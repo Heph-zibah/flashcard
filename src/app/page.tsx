@@ -66,10 +66,10 @@ export default function Home() {
           Shuffle Flashcards
         </Button>
       </div>
-      <footer className="mt-10 text-sm text-gray-500">
+      <footer className="mt-10 text-sm text-gray-500 text-center">
         Created by{" "}
         <a
-          className="text-blue-500 hover:underline"
+          className="text-blue-500 hover:underline text-center"
           href="https://www.linkedin.com/in/oadaramola/"
           target="_blank"
           rel="noopener noreferrer"

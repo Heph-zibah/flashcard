@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://flashcard-oadaramola.vercel.app"),
   title: "FlashLearn | Interactive Flashcard Learning App",
   description:
     "FlashLearn helps you study smarter with interactive digital flashcards. Add, flip, and track learned flashcards for efficient learning. Perfect for students and lifelong learners.",
   manifest: "/manifest.json",
-  themeColor: "#0f172a",
   openGraph: {
     title: "FlashLearn | Interactive Flashcard Learning App",
     description:
@@ -46,6 +46,10 @@ export const metadata: Metadata = {
     "learn online",
     "FlashLearn",
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0f172a",
 };
 
 export default function RootLayout({

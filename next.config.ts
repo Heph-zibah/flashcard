@@ -4,6 +4,13 @@ const withPWA = withPWAInit({
   dest: "public",
   register: true,
   skipWaiting: true,
+  fallbacks: {
+    document: "/offline",
+    image: "",
+    audio: "",
+    video: "",
+    font: "",
+  },
 });
 
 const nextConfig = {
