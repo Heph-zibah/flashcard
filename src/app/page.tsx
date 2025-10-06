@@ -66,6 +66,17 @@ export default function Home() {
           Shuffle Flashcards
         </Button>
       </div>
+      <footer className="mt-10 text-sm text-gray-500">
+        Created by{" "}
+        <a
+          href="https://www.linkedin.com/in/oadaramola/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Oluwatosin Abigail Daramola
+        </a>
+        2025
+      </footer>
     </main>
   );
 }
