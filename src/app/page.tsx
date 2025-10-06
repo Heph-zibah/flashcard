@@ -66,17 +66,22 @@ export default function Home() {
           Shuffle Flashcards
         </Button>
       </div>
-      <footer className="mt-10 text-sm text-gray-500 text-center">
-        Created by{" "}
-        <a
-          className="text-blue-500 hover:underline text-center"
-          href="https://www.linkedin.com/in/oadaramola/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Oluwatosin Abigail Daramola
-        </a>{" "}
-        || &copy; {new Date().getFullYear()}
+      <footer className="mt-10 text-sm text-gray-500 text-center flex flex-col items-center md:flex-row gap-2">
+        <p>
+          Created by{" "}
+          <a
+            className="text-blue-500 hover:underline text-center"
+            href="https://www.linkedin.com/in/oadaramola/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Oluwatosin Abigail Daramola
+          </a>
+        </p>
+        <p>
+          <span className="invisible md:visible">||</span> &copy;{" "}
+          {new Date().getFullYear()}
+        </p>
       </footer>
     </main>
   );

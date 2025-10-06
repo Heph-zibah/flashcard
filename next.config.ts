@@ -4,13 +4,7 @@ const withPWA = withPWAInit({
   dest: "public",
   register: true,
   skipWaiting: true,
-  fallbacks: {
-    document: "/offline",
-    image: "",
-    audio: "",
-    video: "",
-    font: "",
-  },
+  disable: process.env.NODE_ENV === "development",
 });
 
 const nextConfig = {
