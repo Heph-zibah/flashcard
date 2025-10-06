@@ -1,5 +1,3 @@
-import type { NextConfig } from "next";
-// @@ts-expect-error
 import withPWAInit from "next-pwa";
 
 const withPWA = withPWAInit({
@@ -8,9 +6,8 @@ const withPWA = withPWAInit({
   skipWaiting: true,
 });
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
 };
 
 export default withPWA(nextConfig);
