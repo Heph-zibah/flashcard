@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "FlashLearn | Interactive Flashcard Learning App",
   description:
     "FlashLearn helps you study smarter with interactive digital flashcards. Add, flip, and track learned flashcards for efficient learning. Perfect for students and lifelong learners.",
+  manifest: "/manifest.json",
+  themeColor: "#0f172a",
   openGraph: {
     title: "FlashLearn | Interactive Flashcard Learning App",
     description:
@@ -29,6 +31,10 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     site: "@oadaramola10",
     creator: "@oadaramola10",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/icons/icon-192x192.png",
   },
   keywords: [
     "flashcards",
