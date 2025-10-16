@@ -1,10 +1,24 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import FlashcardForm from "@/components/custom/FlashcardForm";
 import FlashcardList from "@/components/custom/FlashcardList";
 import { useFlashcards } from "@/hooks/useFlashcards";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+
 export default function Home() {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      toast.info("Welcome to FlashLearn! 🎉", {
+        description: "Start exploring and building your knowledge.",
+        duration: 4000,
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const {
     flashcards,
     showAnswer,
@@ -21,68 +35,86 @@ export default function Home() {
   } = useFlashcards([]);
 
   return (
-    <main className="min-h-screen bg-[#F9FAFB] flex flex-col items-center p-6 font-inter">
-      <div className="flex items-center mb-8 relative">
-        <h1 className="text-4xl font-poppins font-bold  text-secondary z-10">
-          FlashLearn
-        </h1>
+    <main className="relative min-h-screen flex flex-col items-center p-6 font-inter overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
         <Image
-          src="/logo.png"
-          alt="logo"
-          width={60}
-          height={60}
-          className="w-auto h-auto absolute right-15 top-1/2 transform -translate-y-1/2"
+          src="/background-image.png" // place your background image here
+          alt="Background"
+          fill
+          priority
+          className="object-cover object-center opacity-90"
+          sizes="100vw"
         />
       </div>
 
-      <FlashcardForm
-        newQuestion={newQuestion}
-        setNewQuestion={setNewQuestion}
-        newAnswer={newAnswer}
-        setNewAnswer={setNewAnswer}
-        addFlashcard={addFlashcard}
-      />
+      {/* Content */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        <div className="flex items-center mb-8 relative">
+          <h1 className="text-4xl font-poppins font-bold text-secondary z-10">
+            FlashLearn
+          </h1>
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={60}
+            height={60}
+            className="w-auto h-auto absolute right-15 top-1/2 transform -translate-y-1/2"
+          />
+        </div>
 
-      <FlashcardList
-        flashcards={flashcards}
-        showAnswer={showAnswer}
-        toggleAnswer={toggleAnswer}
-        toggleLearned={toggleLearned}
-        loading={loading}
-      />
-      <div className="flex flex-col md:flex-row items-center md:justify-center w-full gap-5 md:gap-10 mt-10">
-        <Button
-          variant="destructive"
-          onClick={clearFlashcards}
-          className=" w-full md:w-auto"
-        >
-          Clear All Flashcards
-        </Button>
-        <Button
-          variant="default"
-          onClick={shuffle}
-          className="w-full md:w-auto"
-        >
-          Shuffle Flashcards
-        </Button>
-      </div>
-      <footer className="mt-10 text-sm text-gray-500 text-center flex flex-col items-center md:flex-row gap-2">
-        <p>
-          Created by{" "}
-          <a
-            className="text-blue-500 hover:underline text-center"
-            href="https://www.linkedin.com/in/oadaramola/"
-            target="_blank"
-            rel="noopener noreferrer"
+        <FlashcardForm
+          newQuestion={newQuestion}
+          setNewQuestion={setNewQuestion}
+          newAnswer={newAnswer}
+          setNewAnswer={setNewAnswer}
+          addFlashcard={addFlashcard}
+        />
+
+        <FlashcardList
+          flashcards={flashcards}
+          showAnswer={showAnswer}
+          toggleAnswer={toggleAnswer}
+          toggleLearned={toggleLearned}
+          loading={loading}
+        />
+
+        <div className="flex flex-col md:flex-row items-center md:justify-center w-full gap-5 md:gap-10 mt-10">
+          <Button
+            variant="destructive"
+            onClick={clearFlashcards}
+            className="w-full md:w-auto"
           >
-            Oluwatosin Abigail Daramola
-          </a>
-        </p>
-        <p>
-          <span className="invisible md:visible">||</span> &copy;{" "}
-          {new Date().getFullYear()}
-        </p>
-      </footer>
+            Clear All Flashcards
+          </Button>
+          <Button
+            variant="default"
+            onClick={shuffle}
+            className="w-full md:w-auto"
+          >
+            Shuffle Flashcards
+          </Button>
+        </div>
+
+        <footer className="mt-10 text-sm text-gray-500 text-center flex flex-col items-center md:flex-row gap-2">
+          <p>
+            Created by{" "}
+            <a
+              className="text-blue-500 hover:underline text-center"
+              href="https://www.linkedin.com/in/oadaramola/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Oluwatosin Abigail Daramola
+            </a>
+          </p>
+          <p>
+            <span className="invisible md:visible">||</span> &copy;{" "}
+            {new Date().getFullYear()}
+          </p>
+        </footer>
+        <p className="text-xs text-gray-400 mt-4">v1.0.0</p>
+      </div>
     </main>
   );
 }
